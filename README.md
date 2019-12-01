@@ -8,7 +8,7 @@ PHP version 7.2
 
 ### Using this framework
 * Clone this repo
-* Install project dependancies:
+* Install project dependencies:
 ```
 composer install
 ```
