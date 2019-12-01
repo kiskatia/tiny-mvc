@@ -89,7 +89,7 @@ class Router
 
         foreach ($this->routes as $route => $params) {
             if ($url == $route) {
-                foreach($params as $key => $value) {
+                foreach ($params as $key => $value) {
                     $matches[$key] = $value;
                 }
             }
