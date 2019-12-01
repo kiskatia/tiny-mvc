@@ -23,17 +23,18 @@ class Router
     {
         $url = $request->url;
 
-        if (!$this->match($url)) {
+        if (! $this->match($url)) {
             return header("HTTP/1.0 404 Not Found");
         }
 
         $controller = $this->getControllerPath();
 
-        if (!class_exists($controller)) {
+        if (! class_exists($controller)) {
             throw new Exception("Controller class $controller not found");
         }
 
         $controllerObj = new $controller($this->params);
+
         $action = $this->convertToCamelCase($this->params['action']);
 
         if (preg_match('/action$/i', $action) != 0) {
@@ -69,20 +70,23 @@ class Router
         if (array_key_exists('namespace', $this->params)) {
             $namespace .= $this->params['namespace'] . '\\';
         }
+
         return $namespace;
     }
 
     private function getControllerPath()
     {
         $controller = $this->convertToStudlyCaps($this->params['controller']);
+
         return $this->getNamespace() . $controller . 'Controller';
     }
 
     private function match($url)
     {
-        if (!array_key_exists($url, $this->routes)) {
+        if (! array_key_exists($url, $this->routes)) {
             return false;
         }
+
         foreach ($this->routes as $route => $params) {
             if ($url == $route) {
                 foreach($params as $key => $value) {
@@ -90,7 +94,9 @@ class Router
                 }
             }
         }
+
         $this->params = $matches;
+
         return true;
     }
 }
