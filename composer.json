@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core/",
+            "App\\": "app/"
+        },
+        "files": [
+            "app/helper.php"
+        ]
+    },
+    "require": {
+        "twig/twig": "^2.5",
+        "vlucas/phpdotenv": "^2.5"
+    }
+}
