@@ -9,6 +9,8 @@ class HomeController extends Controller
 {
     public function indexAction()
     {
-        View::renderTemplate('home');
+        View::renderTemplate('home', [
+        	'var' => 'Hello! This is home.'
+        ]);
     }
 }

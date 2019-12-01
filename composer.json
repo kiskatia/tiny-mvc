@@ -1,15 +1,27 @@
 {
+    "name": "kiskatia/tiny-mvc",
+    "description": "Super lightweight MVC project for fun.",
+    "homepage": "https://github.com/kiskatia/tiny-mvc",
+    "require": {
+        "php": "^7.2",
+        "twig/twig": "^3.0",
+        "vlucas/phpdotenv": "^4.0"
+    },
     "autoload": {
         "psr-4": {
             "Core\\": "core/",
             "App\\": "app/"
         },
         "files": [
-            "app/helper.php"
+            "app/helpers.php"
         ]
     },
-    "require": {
-        "twig/twig": "^2.5",
-        "vlucas/phpdotenv": "^2.5"
+    "require-dev": {
+        "phpunit/phpunit": "^8.4"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     }
 }

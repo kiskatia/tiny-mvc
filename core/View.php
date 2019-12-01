@@ -2,16 +2,16 @@
 
 namespace Core;
 
-use Twig_Environment;
-use Twig_Loader_Filesystem;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
 class View
 {
     public static function renderTemplate($template, array $args = [])
     {
         $template = $template . '.html.twig';
-        $loader = new Twig_Loader_Filesystem(template_path());
-        $twig = new Twig_Environment($loader, [
+        $loader = new FilesystemLoader(template_path());
+        $twig = new Environment($loader, [
             'debug' => true,
             'cache' => template_cache_path()
         ]);
